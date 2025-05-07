@@ -43,10 +43,17 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ response: generatedText }, { status: 200 });
-  } catch (error: any) {
-    console.error('Error with Gemini API:', error.message);
+  } catch (error: unknown ) {
+    if (error instanceof Error) {
+      console.error('Error with Gemini API:', error.message);
+      return NextResponse.json(
+        { error: error.message || 'Failed to generate response' },
+        { status: 500 }
+      );
+    }
+    console.error('Unexpected error with Gemini API:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to generate response' },
+      { error: 'An unexpected error occurred' },
       { status: 500 }
     );
   }

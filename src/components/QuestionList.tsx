@@ -42,7 +42,7 @@ const QuestionList: React.FC<QuestionListProps> = ({
         
         {/* Questions */}
         <div className="space-y-6">
-          {questions.map((question, index) => {
+          {questions.map((question) => {
             const isActive = question.id === currentQuestionId;
             const isPast = question.id < currentQuestionId;
             const isFuture = question.id > currentQuestionId;
