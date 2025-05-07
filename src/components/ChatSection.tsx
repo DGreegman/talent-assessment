@@ -119,7 +119,7 @@ const ChatSection: React.FC<ChatSectionProps> = ({ messages, setMessages }) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-          placeholder="Write your message, Hit Enter to send..."
+          placeholder="Your prompt, Enter to send..."
           
           className="flex-1 p-2 border rounded-lg focus:outline-none text-black"
         />
